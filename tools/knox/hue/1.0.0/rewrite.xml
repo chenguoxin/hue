@@ -1,0 +1,164 @@
+<rules>
+  <rule dir="IN" name="HUE/hue/inbound/huerule" flow="OR">
+    <match pattern="*://*:*/**/hue/static/{**}">
+      <rewrite template="{$serviceUrl[HUE]}/static/{**}"/>
+    </match>
+    <match pattern="*://*:*/**/hue/{**}?is_embeddable=true?{**}">
+      <rewrite template="{$serviceUrl[HUE]}/{**}?is_embeddable=true?{**}"/>
+    </match>
+    <match pattern="*://*:*/**/hue/about">
+      <rewrite template="{$serviceUrl[HUE]}/hue/about/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/beeswax">
+      <rewrite template="{$serviceUrl[HUE]}/hue/beeswax/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/catalog">
+      <rewrite template="{$serviceUrl[HUE]}/hue/catalog/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/editor/?{**}">
+      <rewrite template="{$serviceUrl[HUE]}/hue/editor/?{**}"/>
+    </match>
+    <match pattern="*://*:*/**/hue/filebrowser">
+      <rewrite template="{$serviceUrl[HUE]}/hue/filebrowser/view=/?default_to_home"/>
+    </match>
+    <match pattern="*://*:*/**/hue/hbase">
+      <rewrite template="{$serviceUrl[HUE]}/hue/hbase/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/help">
+      <rewrite template="{$serviceUrl[HUE]}/hue/help/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/home">
+      <rewrite template="{$serviceUrl[HUE]}/hue/home/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/indexer">
+      <rewrite template="{$serviceUrl[HUE]}/hue/indexer/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/jobbrowser">
+      <rewrite template="{$serviceUrl[HUE]}/hue/jobbrowser/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/jobbsub">
+      <rewrite template="{$serviceUrl[HUE]}/hue/jobbsub/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/logs">
+      <rewrite template="{$serviceUrl[HUE]}/hue/logs/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/metstore">
+      <rewrite template="{$serviceUrl[HUE]}/hue/metastore/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/notebook">
+      <rewrite template="{$serviceUrl[HUE]}/hue/notebook/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/oozie">
+      <rewrite template="{$serviceUrl[HUE]}/hue/oozie/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/rdbms">
+      <rewrite template="{$serviceUrl[HUE]}/hue/rdbms/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/search">
+      <rewrite template="{$serviceUrl[HUE]}/hue/search/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/sqoop">
+      <rewrite template="{$serviceUrl[HUE]}/hue/sqoop/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/useradmin">
+      <rewrite template="{$serviceUrl[HUE]}/hue/useradmin/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/useradmin/groups">
+      <rewrite template="{$serviceUrl[HUE]}/hue/useradmin/groups/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/useradmin/groups/edit/{*}">
+      <rewrite template="{$serviceUrl[HUE]}/hue/useradmin/groups/edit/{*}"/>
+    </match>
+    <match pattern="*://*:*/**/hue/useradmin/groups/new">
+      <rewrite template="{$serviceUrl[HUE]}/hue/useradmin/groups/new"/>
+    </match>
+    <match pattern="*://*:*/**/hue/useradmin/permissions">
+      <rewrite template="{$serviceUrl[HUE]}/hue/useradmin/permissions/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/useradmin/permissions/edit/{*}">
+      <rewrite template="{$serviceUrl[HUE]}/hue/useradmin/permissions/edit/{*}"/>
+    </match>
+    <match pattern="*://*:*/**/hue/useradmin/users">
+      <rewrite template="{$serviceUrl[HUE]}/hue/useradmin/users/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/useradmin/users/add_ldap_groups">
+      <rewrite template="{$serviceUrl[HUE]}/hue/useradmin/users/add_ldap_groups/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/useradmin/users/add_ldap_users">
+      <rewrite template="{$serviceUrl[HUE]}/hue/useradmin/users/add_ldap_users/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/useradmin/users/edit/{*}">
+      <rewrite template="{$serviceUrl[HUE]}/hue/useradmin/edit/{*}"/>
+    </match>
+    <match pattern="*://*:*/**/hue/useradmin/users/new">
+      <rewrite template="{$serviceUrl[HUE]}/hue/useradmin/users/new/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/zookeeper">
+      <rewrite template="{$serviceUrl[HUE]}/hue/zookeeper/"/>
+    </match>
+    <match pattern="*://*:*/**/hue/{**}?{**}">
+      <rewrite template="{$serviceUrl[HUE]}/{**}?{**}"/>
+    </match>
+    <match pattern="*://*:*/**/hue/{**}">
+      <rewrite template="{$serviceUrl[HUE]}/{**}"/>
+    </match>
+    <match pattern="*://*:*/**/hue/">
+      <rewrite template="{$serviceUrl[HUE]}/hue/editor/"/>
+    </match>
+ </rule>
+
+  <rule dir="OUT" name="HUE/hue/outbound/huerooturl/desktop" flow="OR">
+    <match pattern="/desktop/{**}?{**}" >
+       <rewrite template="{$frontend[path]}/hue/desktop/{**}?{**}"/>
+    </match>
+  </rule>
+
+  <rule dir="OUT" name="HUE/hue/outbound/huerooturl/base" flow="OR">
+    <match pattern="/KNOX_BASE_URL" >
+       <rewrite template="{$frontend[path]}/hue"/>
+    </match>
+  </rule>
+
+  <rule dir="OUT" name="HUE/hue/outbound/huerooturl/static" flow="OR">
+    <match pattern="/static/{**}?{**}">
+       <rewrite template="{$frontend[path]}/hue/static/{**}?{**}"/>
+    </match>
+  </rule>
+
+  <filter name="HUE/hue/outbound/huerooturl">
+    <content type="*/html">
+        <apply path="/desktop/globalJsConstants.*" rule="HUE/hue/outbound/huerooturl/desktop"/>
+        <apply path="\/static\/.*\/.*\.(js|css|html|png)" rule="HUE/hue/outbound/huerooturl/static"/>
+        <apply path="\/static\/desktop\/js\/ace" rule="HUE/hue/outbound/huerooturl/static"/>
+    </content>
+    <content type="*/css">
+        <apply path="\/static\/.*\.png" rule="HUE/hue/outbound/huerooturl/static"/>
+    </content>
+  </filter>
+
+  <filter name="HUE/hue/outbound/workers">
+    <content type="*/javascript">
+        <apply path="\/static\/.*\/.*\.(js|css|html|png)" rule="HUE/hue/outbound/huerooturl/static"/>
+    </content>
+  </filter>
+
+  <filter name="HUE/hue/outbound/global">
+    <content type="*/javascript">
+        <apply path="/KNOX_BASE_URL" rule="HUE/hue/outbound/huerooturl/base"/>
+    </content>
+  </filter>
+
+  <rule dir="OUT" name="HUE/hue/outbound/headers/location" flow="OR">
+    <match pattern="/hue/{**}?{**}">
+      <rewrite template="{$frontend[path]}/hue/{**}?{**}"/>
+    </match>
+    <match pattern="/{**}?{**}">
+      <rewrite template="{$frontend[path]}/hue/{**}?{**}"/>
+    </match>
+  </rule>
+  <filter name="HUE/hue/outbound/headers">
+    <content type="application/x-http-headers">
+       <apply path="Location" rule="HUE/hue/outbound/headers/location"/>
+    </content>
+  </filter>
+</rules>

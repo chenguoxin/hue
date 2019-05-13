@@ -27,13 +27,13 @@ ko.bindingHandlers.hueLink = {
         return function(data, event) {
           const url = ko.unwrap(valueAccessor());
           if (url) {
-            const prefix = '/hue' + (url.indexOf('/') === 0 ? '' : '/');
+            const prefix = window.HUE_BASE_URL +  '/hue' + (url.indexOf('/') === 0 ? '' : '/');
             if ($(element).attr('target')) {
               window.open(prefix + url, $(element).attr('target'));
             } else if (event.ctrlKey || event.metaKey || event.which === 2) {
               window.open(prefix + url, '_blank');
             } else {
-              huePubSub.publish('open.link', url);
+              huePubSub.publish('open.link', window.HUE_BASE_URL + url);
             }
           }
         };

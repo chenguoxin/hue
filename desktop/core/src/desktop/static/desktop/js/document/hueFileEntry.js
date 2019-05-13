@@ -790,7 +790,7 @@ var HueFileEntry = (function () {
 
   HueFileEntry.prototype.downloadThis = function () {
     var self = this;
-    window.location.href = '/desktop/api2/doc/export?documents=' + ko.mapping.toJSON([ self.definition().id ]);
+    huePubSub.publish('open.link', '/desktop/api2/doc/export?documents=' + ko.mapping.toJSON([ self.definition().id ]));
   };
 
   HueFileEntry.prototype.download = function () {
@@ -800,7 +800,7 @@ var HueFileEntry = (function () {
         var ids = self.selectedEntries().map(function (entry) {
           return entry.definition().id;
         });
-        window.location.href = '/desktop/api2/doc/export?documents=' + ko.mapping.toJSON(ids);
+        huePubSub.publish('open.link', '/desktop/api2/doc/export?documents=' + ko.mapping.toJSON(ids));
       } else {
         self.downloadThis();
       }
